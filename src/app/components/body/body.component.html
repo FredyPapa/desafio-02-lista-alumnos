@@ -1,0 +1,19 @@
+<div class="row layout">
+  <div class="col-lg-4 mt-5" *ngFor="let alumno of listaAlumnos">
+      <div class="card" style="width: 25rem; margin: 0 auto">
+        <img [src]="alumno.urlFoto" alt="Imagen usuario" class="card-img-top img-thumbnail"/>
+        <div class="card-body text-center" [ngClass]="alumno.estado?'bg-info':'bg-danger'">
+          <h5 class="card-title">{{ alumno.nombre | uppercase }} {{ alumno.apellido | uppercase }}</h5>
+          <ul class="list-group list-group flush">
+            <li class="list-group-item">{{ alumno.correo }}</li>
+            <li class="list-group-item">{{ alumno.sexo }}</li>
+            <li class="list-group-item">{{ alumno.estado?'Activo':'No activo' }}</li>
+          </ul>
+          <div class="d-grid gap-2" *ngIf="alumno.estado">
+            <button class="btn btn-warning" type="button">Ver detalles</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
